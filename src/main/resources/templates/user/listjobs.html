@@ -1,0 +1,28 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <ul th:each="job : ${jobs}">
+        <li th:text="${job.getJobTitle()}"> </li>
+        <li th:text="${job.getJobDescription()}"> </li>
+        <a th:href="@{'/user/listjobs/' + ${job.getId()} +'/apply/'}">apply</a>
+        <a th:href="@{'/user/listjobs/'+ ${job.getId()} +'/jobdetail'}">Details</a>
+    </ul>
+
+    <a th:href="@{/user/apply}">Apply</a>
+    <br/>
+    <a th:href="@{/user/home}">User Home</a>
+    <br/>
+    <a th:href="@{/}">Home</a>
+</div>
+
+</body>
+</html>

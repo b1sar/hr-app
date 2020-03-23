@@ -1,0 +1,17 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <p>Application was successfull</p>
+    <a th:href="@{/user/listjobs}">Go to job listings</a>
+</div>
+<p>Application was successfull</p>
+<a th:href="@{/user/listjobs}">Go to job listings</a>
+</body>
+</html>
