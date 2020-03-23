@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <form action="#" th:action="@{/manager/addjob}" th:object="${jobListing}" method="post">
+        <div th:if="${#fields.hasErrors('jobTitle')}" th:errors="*{jobTitle}"></div>
+        <input type="text" th:field="*{jobTitle}"/>
+        <br/>
+
+        <div th:if="${#fields.hasErrors('jobDescription')}" th:errors="*{jobDescription}"></div>
+        <input type="text" th:field="*{jobDescription}"/>
+        <br/>
+
+        <div th:if="${#fields.hasErrors('numberOfPeopleToHire')}" th:errors="*{numberOfPeopleToHire}"></div>
+        <input type="number" th:field="*{numberOfPeopleToHire}"/>
+        <br/>
+
+        <div th:if="${#fields.hasErrors('lastApplicationDate')}" th:errors="*{lastApplicationDate}"></div>
+        <input type="date" th:field="*{lastApplicationDate}"/>
+        <br/>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
