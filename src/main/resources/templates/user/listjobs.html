@@ -9,19 +9,22 @@
 <body>
 
 <div layout:fragment="content">
-
-    <ul th:each="job : ${jobs}">
-        <li th:text="${job.getJobTitle()}"> </li>
-        <li th:text="${job.getJobDescription()}"> </li>
-        <a th:href="@{'/user/listjobs/' + ${job.getId()} +'/apply/'}">apply</a>
-        <a th:href="@{'/user/listjobs/'+ ${job.getId()} +'/jobdetail'}">Details</a>
-    </ul>
-
-    <a th:href="@{/user/apply}">Apply</a>
-    <br/>
-    <a th:href="@{/user/home}">User Home</a>
-    <br/>
-    <a th:href="@{/}">Home</a>
+    <div class="container text-center">
+        <table style="width:100%">
+            <tr>
+                <th>Job Title</th>
+                <th>Description</th>
+                <th>Apply</th>
+                <th>Details</th>
+            </tr>
+            <tr th:each="job : ${jobs}">
+                <td th:text="${job.getJobTitle()}"></td>
+                <td th:text="${job.getJobDescription().substring(0, 100)} + '...'"></td>
+                <td><a th:href="@{'/user/listjobs/' + ${job.getId()} +'/apply/'}" class="btn btn-primary">apply</a></td>
+                <td><a th:href="@{'/user/listjobs/'+ ${job.getId()} +'/jobdetail'}" class="btn btn-primary">Details</a></td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 </body>

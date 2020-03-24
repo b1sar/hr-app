@@ -8,10 +8,18 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div>
-        <a th:href="@{/manager/listjobs}">List Jobs</a>
-        <a th:href="@{/manager/addjob}">Add Job</a>
-        <a th:href="@{/manager/applications/all}">List Applications</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <a th:href="@{/manager/listjobs}">List Jobs</a>
+            </div>
+            <div class="col-4">
+                <a th:href="@{/manager/addjob}">Add Job</a>
+            </div>
+            <div class="col-4">
+                <a th:href="@{/manager/applications/all}">List Applications</a>
+            </div>
+        </div>
     </div>
 </div>
 </body>

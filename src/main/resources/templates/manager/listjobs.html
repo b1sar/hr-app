@@ -8,16 +8,33 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <ul th:each="job : ${jobs}">
-        <li th:text="${job.getJobTitle()}"> </li>
-        <li th:text="${job.getJobDescription()}"> </li>
-        <a th:href="@{'/manager/listjobs/' + ${job.getId()} + '/delete'}">Delete</a>
-        <a th:href="@{'/manager/listjobs/'+ ${job.getId()} +'/detail'}">Details</a>
-    </ul>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-12 text-center">
 
-    <a th:href="@{/manager/addjob}">Create A Job</a>
-    <br/>
-    <a th:href="@{/}">Home</a>
+                <table style="width:100%">
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Description</th>
+                        <th>Delete</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr th:each="job : ${jobs}" style="height: 50px" class="rounded-left rounded-right">
+                        <td th:text="${job.getJobTitle()}"></td>
+                        <td th:text="${job.getJobDescription().substring(0,100)} + '...'"></td>
+                        <td><a th:href="@{'/manager/listjobs/' + ${job.getId()} + '/delete'}">Delete</a></td>
+                        <td><a th:href="@{'/manager/listjobs/'+ ${job.getId()} +'/detail'}">Details</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a th:href="@{/manager/addjob}">Create A Job</a>
+                    <a th:href="@{/}">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

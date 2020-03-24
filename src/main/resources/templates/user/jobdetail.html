@@ -11,19 +11,27 @@
 <div layout:fragment="content">
     <div class="container text-center">
         <div class="row">
-            <h3 th:text="${job.getJobTitle()}"></h3>
+            <div class="col-12 text-center">
+                <h3 th:text="${job.getJobTitle()}"></h3>
+            </div>
         </div>
         <div class="row">
-            <p th:text="${job.getJobDescription()}"></p>
+            <div class="col-12 text-center">
+                <p th:text="${job.getJobDescription()}"></p>
+            </div>
         </div>
         <div class="row">
-            <p th:text="'Alinacak kişi sayısı: ' + ${job.getNumberOfPeopleToHire()}"></p>
-            <br/>
-            <p th:text="'Last application date: ' + ${job.getLastApplicationDate()}"></p>
+            <div class="col-6 text-center">
+                <p th:text="'Alinacak kişi sayısı: ' + ${job.getNumberOfPeopleToHire()}"></p>
+            </div>
+            <div class="col-6 text-center">
+                <p th:text="'Last application date: ' + ${job.getLastApplicationDate()}"></p>
+            </div>
         </div>
         <div class="row">
-            <a th:href="@{'/user/listjobs/' + ${job.getId()} +'/apply/'}">apply</a>
-            <br/>
+            <div class="col-12 text-center">
+                <a th:href="@{'/user/listjobs/' + ${job.getId()} +'/apply/'}">apply</a>
+            </div>
         </div>
     </div>
 </div>

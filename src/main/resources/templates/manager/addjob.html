@@ -8,29 +8,29 @@
 </head>
 <body>
 
-<div layout:fragment="content">
-    <div class="container text-center">
+<div layout:fragment="content" >
+    <div class="container text-center" >
         <form class="mt-4" action="#" th:action="@{/manager/addjob}" th:object="${jobListing}" method="post">
             <p class="h4 mb-4 text-center" >Add a new job</p>
 
 
             <label for="jobtitle" class="active">Job Title:</label>
-            <div th:if="${#fields.hasErrors('jobTitle')}" th:errors="*{jobTitle}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('jobTitle')}" th:errors="*{jobTitle}"></div>
             <input id="jobtitle" type="text" th:field="*{jobTitle}" class="form-control mb-4"/>
             <br/>
 
             <label for="description" class="active">Job Description:</label>
-            <div th:if="${#fields.hasErrors('jobDescription')}" th:errors="*{jobDescription}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('jobDescription')}" th:errors="*{jobDescription}"></div>
             <textarea id="description" th:field="*{jobDescription}" class="form-control mb-4" placeholder="Write the job description here..."/>
             <br/>
 
             <label for="numberOfPeopleToHire" class="active">Number Of People To Hire:</label>
-            <div th:if="${#fields.hasErrors('numberOfPeopleToHire')}" th:errors="*{numberOfPeopleToHire}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('numberOfPeopleToHire')}" th:errors="*{numberOfPeopleToHire}"></div>
             <input id="numberOfPeopleToHire" type="number" th:field="*{numberOfPeopleToHire}" class="form-control mb-4"/>
             <br/>
 
             <label for="applicationDate" class="active">Last Application Date :</label>
-            <div th:if="${#fields.hasErrors('lastApplicationDate')}" th:errors="*{lastApplicationDate}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('lastApplicationDate')}" th:errors="*{lastApplicationDate}"></div>
             <input  id="applicationDate" type="date" th:field="*{lastApplicationDate}" class="form-control mb-4"/>
             <br/>
             <button type="submit" class="btn btn-info btn-block my-4">Add</button>

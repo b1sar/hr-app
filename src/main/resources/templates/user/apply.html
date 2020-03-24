@@ -14,25 +14,25 @@
             <p class="h4 mb-4 text-center" th:text="'Apply To' + ${jobId}">Apply</p>
 
             <label for="myName" class="active">Your Name:</label>
-            <div  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
             <input th:field="*{name}" type="text" id="myName" class="form-control mb-4" placeholder="Name" required>
 
             <label for="defaultLoginFormEmail" class="active">Your Email:</label>
-            <div  th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
             <input th:field="*{email}" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" required>
 
             <label for="myPhone">Phone</label>
-            <div  th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
             <input th:field="*{phone}" type="text" id="myPhone" class="form-control mb-4" placeholder="5458432322" required>
 
             <label for="myAdress">Adres</label>
-            <div  th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
             <input th:field="*{address}" type="text" id="myAdress" class="form-control mb-4" placeholder="Adres" required>
 
             <label for="textarea">Your Thougts:<br/>
-                <div  th:if="${#fields.hasErrors('thoughtsOnJob')}" th:errors="*{thoughtsOnJob}"></div>
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('thoughtsOnJob')}" th:errors="*{thoughtsOnJob}"></div>
             </label>
-            <div  th:if="${#fields.hasErrors('thoughtsOnJob')}" th:errors="*{thoughtsOnJob}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('thoughtsOnJob')}" th:errors="*{thoughtsOnJob}"></div>
             <textarea th:field="*{thoughtsOnJob}" id="textarea" class="form-control mb-4" placeholder="I think this job is the best fit for me..." required></textarea>
 
             <div class="input-group mb-4">
@@ -44,7 +44,7 @@
                     <input th:field="*{cv}"  th:name="file" type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" required>
                     <label class="custom-file-label" for="fileInput">
                         CV<br/>
-                        <div  th:if="${#fields.hasErrors('cv')}" th:errors="*{cv}"></div>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cv')}" th:errors="*{cv}"></div>
                     </label>
                 </div>
             </div>
