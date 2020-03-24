@@ -48,15 +48,10 @@ public class UserController {
     /*END DETAILS*/
 
 
-    //This method should not exist
-    @GetMapping("/apply")
-    public String getApplyPage(JobApplication jobApplication)
-    {
-        return"user/apply";
-    }
-
     @PostMapping(value = "/listjobs/{jobId}/apply")
-    public String apply(@PathVariable("jobId") Integer jobId, @Valid @ModelAttribute("jobApplicationDTO") JobApplicationDTO jobApplicationDTO, BindingResult bindingResult) throws IOException {
+    public String apply(@PathVariable("jobId") Integer jobId,
+                        @Valid @ModelAttribute("jobApplicationDTO") JobApplicationDTO jobApplicationDTO,
+                        BindingResult bindingResult) throws IOException {
         if(bindingResult.hasErrors())
         {
             return "user/apply";

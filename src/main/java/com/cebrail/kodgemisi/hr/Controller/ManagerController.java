@@ -63,7 +63,7 @@ public class ManagerController {
     }
 
     @GetMapping("/listjobs/{id}/detail")
-    public String getJobDetail(@PathVariable("id") Integer id, Model model)
+    public String getJobDetails(@PathVariable("id") Integer id, Model model)
     {
         JobListing jobListing = jobListingService.getJobListingById(id);
         model.addAttribute("job", jobListing);
@@ -77,7 +77,9 @@ public class ManagerController {
 
         List<JobApplication> allApplications =  jobApplicationService.findAll();
 
-        List<JobApplicationDTO> allApplicationDTOs = allApplications.stream().map(DTOConverter::convertToJobApplicationDTO).collect(Collectors.toList());
+        List<JobApplicationDTO> allApplicationDTOs = allApplications.stream()
+                .map(DTOConverter::convertToJobApplicationDTO)
+                .collect(Collectors.toList());
 
         model.addAttribute("allApplicationDTOs", allApplicationDTOs);
 
@@ -86,7 +88,7 @@ public class ManagerController {
     }
 
     @GetMapping("/applications/all/{id}")
-    public String getApplicationsByJobId(@PathVariable("id") Integer id, Model model)
+    public String getApplicationByJobId(@PathVariable("id") Integer id, Model model)
     {
         List<JobApplication> allApplications = jobApplicationService.getAllJobApplicationsByJobListing_Id(id);
 
