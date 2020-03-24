@@ -19,7 +19,7 @@
             </tr>
             <tr th:each="job : ${jobs}">
                 <td th:text="${job.getJobTitle()}"></td>
-                <td th:text="${job.getJobDescription().substring(0, 100)} + '...'"></td>
+                <td th:text="${job.getJobDescription().length()<100} ? ${job.getJobDescription()} : ${job.getJobDescription().substring(0,100) + '...'} "></td>
                 <td><a th:href="@{'/user/listjobs/' + ${job.getId()} +'/apply/'}" class="btn btn-primary">apply</a></td>
                 <td><a th:href="@{'/user/listjobs/'+ ${job.getId()} +'/jobdetail'}" class="btn btn-primary">Details</a></td>
             </tr>
