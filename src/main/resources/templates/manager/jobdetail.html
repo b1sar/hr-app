@@ -9,7 +9,35 @@
 <body>
 <div layout:fragment="content">
 
-    Job Detail Page
+    <div class="container text-center">
+        <div class="row text-center">
+            <div class="col">
+                <h3 th:text="${job.getJobTitle()}"></h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p th:text="${job.getJobDescription()}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>Number Of People To Hire: </span>
+                <p th:text="${job.getNumberOfPeopleToHire()}"></p>
+            </div>
+            <div class="col">
+                <span>Last Application Date: </span>
+                <p th:text="${job.getLastApplicationDate()}"></p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col">
+                <a class="btn btn-primary" th:href="@{'/manager/listjobs/' + ${job.getId()} + '/delete'}">Delete</a>
+            </div>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>
