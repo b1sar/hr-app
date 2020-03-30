@@ -6,6 +6,7 @@ import com.cebrail.kodgemisi.hr.Model.JobApplication;
 import com.cebrail.kodgemisi.hr.Model.JobListing;
 import com.cebrail.kodgemisi.hr.Service.JobApplicationService;
 import com.cebrail.kodgemisi.hr.Service.JobListingService;
+import com.cebrail.kodgemisi.hr.Service.JobListingServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
