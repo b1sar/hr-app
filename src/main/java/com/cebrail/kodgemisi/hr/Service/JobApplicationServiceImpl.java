@@ -3,6 +3,8 @@ package com.cebrail.kodgemisi.hr.Service;
 import com.cebrail.kodgemisi.hr.DAO.JobApplicationRepo;
 import com.cebrail.kodgemisi.hr.Model.JobApplication;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +35,12 @@ public class JobApplicationServiceImpl implements JobApplicationService {
     @Override
     public List<JobApplication> findAll() {
         return jobApplicationRepo.findAll();
+    }
+
+    @Override
+    public Page<JobApplication> findAll(Pageable pageable) {
+
+        return jobApplicationRepo.findAll(pageable);
     }
 
 }

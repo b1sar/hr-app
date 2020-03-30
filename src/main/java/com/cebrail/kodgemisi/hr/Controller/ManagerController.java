@@ -9,6 +9,9 @@ import com.cebrail.kodgemisi.hr.Service.JobListingService;
 import com.cebrail.kodgemisi.hr.Service.JobListingServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +22,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/manager")
@@ -35,9 +40,21 @@ public class ManagerController {
     }
 
     @GetMapping("/listjobs")
-    public String listJobs(Model model)
+    public String listJobs(Model model, @RequestParam Optional<Integer> requestedPage)
     {
-        model.addAttribute("jobs", jobListingService.getAllJobs());
+        Pageable pageable = PageRequest.of(requestedPage.orElse(1), 2);
+        Page<JobListing> jobs = jobListingService.getAllJobs(pageable);
+
+        Integer totalPages = jobs.getTotalPages();
+
+        List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages-1)
+                .boxed()
+                .collect(Collectors.toList());
+
+
+        model.addAttribute("mypage", jobs);
+        model.addAttribute("pageNumbers", pageNumbers);
+
         return "manager/listjobs";
     }
     @PostMapping("/addjob")
@@ -72,15 +89,34 @@ public class ManagerController {
     }
 
     @GetMapping("/applications/all")
-    public String getAllApplications(Model model) throws Exception
+    public String getAllApplications(Model model, @RequestParam Optional<Integer> requestedPage) throws Exception
     {
+        Pageable pageable = PageRequest.of(requestedPage.orElse(1), 2);
 
 
-        List<JobApplication> allApplications =  jobApplicationService.findAll();
+
+
+
+        /*******************/
+        Page<JobApplication> pages =  jobApplicationService.findAll(pageable);
+
+        Integer totalPages = pages.getTotalPages();
+
+        List<JobApplication> allApplications = pages.getContent();
 
         List<JobApplicationDTO> allApplicationDTOs = allApplications.stream()
                 .map(DTOConverter::convertToJobApplicationDTO)
                 .collect(Collectors.toList());
+
+
+        List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages-1)
+                .boxed()
+                .collect(Collectors.toList());
+
+        model.addAttribute("pageNumbers", pageNumbers);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("pages", pages);
+
 
         model.addAttribute("allApplicationDTOs", allApplicationDTOs);
 

@@ -19,7 +19,7 @@
                         <th>Delete</th>
                         <th>Details</th>
                     </tr>
-                    <tr th:each="job : ${jobs}" style="height: 50px" class="rounded-left rounded-right">
+                    <tr th:each="job : ${mypage.getContent()}" style="height: 50px" class="rounded-left rounded-right">
                         <td th:text="${job.getJobTitle()}"></td>
                         <td th:text="${job.getJobDescription().length()<100} ? ${job.getJobDescription()} : ${job.getJobDescription().substring(0,100) + '...'} "></td>
                         <td><a th:href="@{'/manager/listjobs/' + ${job.getId()} + '/delete'}">Delete</a></td>
@@ -27,12 +27,26 @@
                     </tr>
                 </table>
             </div>
-            <div class="row  mt-5">
-                <div class="col-12 text-center">
-                    <a class="btn btn-primary" th:href="@{/manager/addjob}">Create A Job</a>
-                    <a class="btn btn-primary ml-2" th:href="@{/}">Home</a>
-                </div>
-            </div>
+
+        </div>
+    </div>
+
+    <div class="row  mt-5">
+        <div class="col-12 text-center">
+            <a class="btn btn-primary" th:href="@{/manager/addjob}">Create A Job</a>
+            <a class="btn btn-primary ml-2" th:href="@{/}">Home</a>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col text-center">
+            <nav aria-label="Page navigation">
+                <ul th:if="${mypage.totalPages > 1}" class="pagination justify-content-center" >
+                    <li  th:each="pageNumber : ${pageNumbers}" th:class="${pageNumber==mypage.getNumber()} ? 'page-item active': 'page-item'">
+                        <a th:href="@{/manager/listjobs(requestedPage=${pageNumber})}" th:text="${pageNumber}" class="page-link"></a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
