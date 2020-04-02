@@ -43,7 +43,7 @@
             <nav aria-label="Page navigation">
                 <ul th:if="${mypage.totalPages > 1}" class="pagination justify-content-center" >
                     <li  th:each="pageNumber : ${pageNumbers}" th:class="${pageNumber==mypage.getNumber()} ? 'page-item active': 'page-item'">
-                        <a th:href="@{/manager/listjobs(requestedPage=${pageNumber})}" th:text="${pageNumber}" class="page-link"></a>
+                        <a th:href="@{/manager/listjobs(requestedPage=${pageNumber})}" th:text="${pageNumber+1}" class="page-link"></a>
                     </li>
                 </ul>
             </nav>

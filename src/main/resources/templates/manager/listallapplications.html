@@ -19,10 +19,8 @@
                     <li th:text="${app.getPhone()}"></li>
                     <li th:text="${app.getAddress()}"></li>
                     <li th:text="${app.getThoughtsOnJob()}"></li>
-                    <!--
-                    <object th:data="@{'/manager/applications/all/'+${app.getId()}+'/cv'}" type="application/pdf" width="100%" height="700pxs"></object>
-                    -->
-                    <p>CV Eklenecek</p>
+
+                    <p>CV</p>
                     <br/>
                     <a th:href="@{'/manager/applications/all/' + ${app.getId()} + '/detail'}">Details</a>
                     <br/>
@@ -34,7 +32,7 @@
                 <nav aria-label="Page navigation">
                     <ul th:if="${totalPages > 1}" class="pagination justify-content-center" >
                         <li  th:each="pageNumber : ${pageNumbers}" th:class="${pageNumber==pages.getNumber()} ? 'page-item active': 'page-item'">
-                            <a th:href="@{/manager/applications/all(requestedPage=${pageNumber})}" th:text="${pageNumber}" class="page-link"></a>
+                            <a th:href="@{/manager/applications/all(requestedPage=${pageNumber})}" th:text="${pageNumber+1}" class="page-link"></a>
                         </li>
                     </ul>
                 </nav>

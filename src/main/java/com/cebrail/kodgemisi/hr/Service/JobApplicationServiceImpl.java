@@ -29,7 +29,7 @@ public class JobApplicationServiceImpl implements JobApplicationService {
     @Override
     public List<JobApplication> getAllJobApplicationsByJobListing_Id(Integer id)
     {
-        return jobApplicationRepo.getAllByJobListing_Id(id);
+        return jobApplicationRepo.getJobApplicationsByJobListing_Id(id);
     }
 
     @Override

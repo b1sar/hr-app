@@ -28,9 +28,11 @@ public class JobApplicationDTO {
     @NotNull
     private String address;
 
+    //TODO:Should accept length of not more than what db accepts
     @NotNull
     private String thoughtsOnJob;
 
     //@NotNull
+    //TOdO: Should accept only doc or pdf file formats
     private MultipartFile cv;
 }

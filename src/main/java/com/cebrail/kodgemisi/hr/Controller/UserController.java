@@ -50,6 +50,8 @@ public class UserController {
     /*END DETAILS*/
 
 
+
+
     @PostMapping(value = "/listjobs/{jobId}/apply")
     public String apply(@PathVariable("jobId") Integer jobId,
                         @Valid @ModelAttribute("jobApplicationDTO") JobApplicationDTO jobApplicationDTO,
@@ -73,6 +75,12 @@ public class UserController {
     {
         model.addAttribute("jobApplicationDTO", jobApplicationDTO);
         model.addAttribute("jobId", jobId);
+
+        /*to access the job title*/
+        JobListing jobListing = jobListingService.getJobListingById(jobId);
+        model.addAttribute("job", jobListing);
+        /*end*/
+
         return "user/apply";
     }
 }

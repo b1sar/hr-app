@@ -42,15 +42,14 @@ public class ManagerController {
     @GetMapping("/listjobs")
     public String listJobs(Model model, @RequestParam Optional<Integer> requestedPage)
     {
-        Pageable pageable = PageRequest.of(requestedPage.orElse(1), 2);
+        Pageable pageable = PageRequest.of(requestedPage.orElse(0), 2);
         Page<JobListing> jobs = jobListingService.getAllJobs(pageable);
 
         Integer totalPages = jobs.getTotalPages();
 
-        List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages-1)
+        List<Integer> pageNumbers = IntStream.rangeClosed(0, totalPages-1)
                 .boxed()
                 .collect(Collectors.toList());
-
 
         model.addAttribute("mypage", jobs);
         model.addAttribute("pageNumbers", pageNumbers);
@@ -91,7 +90,7 @@ public class ManagerController {
     @GetMapping("/applications/all")
     public String getAllApplications(Model model, @RequestParam Optional<Integer> requestedPage) throws Exception
     {
-        Pageable pageable = PageRequest.of(requestedPage.orElse(1), 2);
+        Pageable pageable = PageRequest.of(requestedPage.orElse(0), 2);
 
 
 
@@ -109,7 +108,7 @@ public class ManagerController {
                 .collect(Collectors.toList());
 
 
-        List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages-1)
+        List<Integer> pageNumbers = IntStream.rangeClosed(0, totalPages-1)
                 .boxed()
                 .collect(Collectors.toList());
 
@@ -124,13 +123,14 @@ public class ManagerController {
         return "manager/listallapplications";
     }
 
+
     @GetMapping("/applications/all/{id}")
     public String getApplicationByJobId(@PathVariable("id") Integer id, Model model)
     {
         List<JobApplication> allApplications = jobApplicationService.getAllJobApplicationsByJobListing_Id(id);
 
 
-        model.addAttribute("allApplications", allApplications);
+        model.addAttribute("allApplicationDTOs", allApplications);
 
         return "manager/listallapplications";
     }

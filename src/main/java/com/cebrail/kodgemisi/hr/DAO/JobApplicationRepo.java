@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface JobApplicationRepo extends JpaRepository<JobApplication, Integer> {
 
-    public List<JobApplication> getAllByJobListing_Id(Integer id);
+    public List<JobApplication> getJobApplicationsByJobListing_Id(Integer id);
 }

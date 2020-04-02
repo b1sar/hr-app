@@ -35,6 +35,9 @@
             <div class="col">
                 <a class="btn btn-primary" th:href="@{'/manager/listjobs/' + ${job.getId()} + '/delete'}">Delete</a>
             </div>
+            <div class="col">
+                <a class="btn btn-primary" th:href="@{'/manager/applications/all/' + ${job.getId()}}">Applications</a>
+            </div>
         </div>
     </div>
 
