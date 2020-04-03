@@ -22,7 +22,9 @@
         </div>
         <div class="row">
             <div class="col text-center">
-                <a th:href="@{/manager/logout}">Logout</a>
+                <form th:action="@{/manager/logout}" method="post">
+                    <input type="submit" value="Logout" class="btn btn-primary"/>
+                </form>
             </div>
         </div>
     </div>

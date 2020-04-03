@@ -10,7 +10,7 @@
 
 <div layout:fragment="content">
     <div class="container">
-        <form class="form-signin" method="post" action="/user/login">
+        <form class="form-signin" method="post" th:action="@{/user/login}">
             <h2 class="form-signin-heading">User Login</h2>
             <p>
                 <label for="username" class="sr-only">Username</label>
