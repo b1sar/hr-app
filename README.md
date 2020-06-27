@@ -1,1 +1,1 @@
-# Human Resources Application
+# Human Resources Application built with Spring Boot
