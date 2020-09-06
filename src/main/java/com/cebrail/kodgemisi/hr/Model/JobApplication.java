@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -17,20 +15,17 @@ public class JobApplication {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
+
     private String name;
 
-    @NotNull
-    @Email(message = "Lutfen uygun bir email giriniz.")
+    
     private String email;
 
-    @NotNull
+
     private String phone;
 
-    @NotNull
     private String address;
 
-    @NotNull
     private String thoughtsOnJob;
 
     /*CV start*/

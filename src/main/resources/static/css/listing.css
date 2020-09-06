@@ -1,0 +1,222 @@
+.listings-container {
+  margin: 15px 0 15px 0;
+}
+
+.listing {
+  border-radius: 0;
+  display: flex;
+  padding: 25px;
+  border-left: 4px solid #eee;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  margin-top: -1px;
+}
+
+.listings-container .listing:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.listings-container .listing:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.listing.featured {
+  background-color: #fffcee;
+}
+
+.listing:hover {
+  background-color: #fafafa;
+}
+
+.listing-badge {
+  background-color: #fac710;
+  float: left;
+  position: absolute;
+  transform: rotate(45deg);
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
+  z-index: 999;
+  color: #fff;
+  font-weight: 500;
+  width: 66px;
+  height: 66px;
+  right: -33px;
+  top: -33px;
+  line-height: 106px;
+}
+
+.listing-badge i {
+  transform: rotate(-45deg);
+}
+
+.listing.full-time {
+  border-left: 4px solid #186fc9;
+}
+
+.listing.part-time {
+  border-left: 4px solid #f1630d;
+}
+
+.listing.freelance {
+  border-left: 4px solid #53b427;
+}
+
+.listing.internship {
+  border-left: 4px solid #e1d123;
+}
+
+.listing.temporary {
+  border-left: 4px solid #e12335;
+}
+
+.listing .listing-logo {
+  width: 60px;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.listing .listing-logo img {
+  border-radius: 3px;
+  transform: translate3d(0, 0, 0);
+  object-fit: contain;
+  height: auto;
+}
+
+.listing .listing-title {
+  flex-wrap: wrap;
+  padding-left: 25px;
+  padding-right: 110px;
+}
+
+.listing .listing-title h4 {
+  letter-spacing: 0;
+  font-size: 17px;
+  line-height: 27px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.listing-type {
+  border-radius: 3px;
+  font-size: 12px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  color: #888;
+  padding: 4px 8px;
+  line-height: 18px;
+  font-weight: 500;
+  position: absolute;
+  right: 25px;
+  white-space: nowrap;
+  text-align: center;
+  min-width: 76px;
+}
+
+@media (max-width: 767px) {
+  .listing-type {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: translateY(0%);
+    margin: 8px 0;
+    display: inline-block;
+  }
+
+  .listing .listing-title {
+    padding-right: 0;
+  }
+
+  .listing .listing-logo {
+    width: 40px;
+    min-width: 40px;
+  }
+
+  .listing .listing-logo img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.listing-type a {
+  color: inherit;
+}
+
+.listing.full-time .listing-type {
+  color: #186fc9;
+  border-color: #186fc9;
+  background-color: #f1f7fc;
+}
+
+.listing.part-time .listing-type {
+  color: #f1630d;
+  border-color: #f1630d;
+  background-color: #fef6f0;
+}
+
+.listing.freelance .listing-type {
+  color: #53b427;
+  border-color: #53b427;
+  background-color: #f5fbf2;
+}
+
+.listing.internship .listing-type {
+  color: #dcaa0c;
+  border-color: #dfb634;
+  background-color: #fdfcf2;
+}
+
+.listing.temporary .listing-type {
+  color: #e12335;
+  border-color: #e12335;
+  background-color: #fdf2f3;
+}
+
+
+.listing-date {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  color: #888;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 3px 8px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.listing-date.new {
+  border-color: #26ae62;
+  background-color: #e9fff3;
+  color: #26ae62;
+}
+
+.listing-details {
+  flex-wrap: wrap;
+}
+
+.listing-icons {
+  padding: 0;
+  margin: 0;
+}
+
+.listing-icons li {
+  display: inline-block;
+  margin-right: 13px;
+  color: #808080;
+  line-height: 29px;
+}
+
+.listing-icons li:last-child {
+  margin-right: 0px;
+}
+
+.listing-icons li i {
+  font-size: 19px;
+  position: relative;
+  top: 2px;
+  margin: 0 4px 0 0;
+}

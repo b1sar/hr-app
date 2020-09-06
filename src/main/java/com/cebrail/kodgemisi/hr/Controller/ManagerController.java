@@ -20,7 +20,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -57,7 +58,7 @@ public class ManagerController {
         return "manager/listjobs";
     }
     @PostMapping("/addjob")
-    public String addJob(@Valid @ModelAttribute("jobListing") JobListing jobListing, BindingResult bindingResult) {
+    public String addJob( @ModelAttribute("jobListing") JobListing jobListing, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors())
         {
